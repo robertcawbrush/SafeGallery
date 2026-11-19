@@ -401,7 +401,8 @@ class EditActivity : BaseCropActivity() {
             return
         }
 
-        setOldExif()
+        // Cropped pixels are re-encoded; never restore metadata from the source image.
+        oldExif = null
 
         if (isSharingBitmap) {
             isSharingBitmap = false

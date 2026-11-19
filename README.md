@@ -12,6 +12,18 @@ Enhance your photos with our basic yet powerful photo editor. Crop, resize, rota
 **🌐 PRIVACY FIRST, ALWAYS:**  
 Your privacy matters. Ditch the data-hungry giants. Fossify Gallery puts you in control. Strip away EXIF metadata like GPS coordinates and camera details, keeping your memories yours, and yours alone.
 
+### Automatic metadata removal when cropping (this fork)
+
+Saving from the editor's crop/rotate tool always re-encodes the image without
+copying the original embedded metadata, including GPS coordinates, camera details,
+capture timestamps, and XMP. This applies to **Save as**, **Overwrite original**,
+and crop requests from other apps. No extra setting or metadata-removal app is needed.
+Filter-only and drawing-only saves retain their existing metadata behavior.
+
+Use **Save as** to keep the original photo unchanged. **Overwrite original** removes
+the embedded metadata from the original as well. This does not anonymize filenames,
+filesystem timestamps, Android's media database, or information visible in the photo.
+
 **🔒 SUPERIOR SECURITY:**  
 Lock down your memories with pin, pattern, or fingerprint protection. Secure specific photos, videos, or the entire app – you decide who gets access. Peace of mind, guaranteed.
 
