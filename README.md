@@ -20,8 +20,15 @@ capture timestamps, and XMP. This applies to **Save as**, **Overwrite original**
 and crop requests from other apps. No extra setting or metadata-removal app is needed.
 Filter-only and drawing-only saves retain their existing metadata behavior.
 
+Crop saves use a neutral filename such as `IMG_20261119_164340.jpg`, based on when
+the crop is saved rather than when the photo was taken. **Save as** suggests this
+name and lets you edit it. **Overwrite original** also renames the saved photo;
+existing files with the same name are not replaced by the automatic rename.
+Shared crops use neutral names too. Crop requests from other apps keep the
+destination filename supplied by the calling app.
+
 Use **Save as** to keep the original photo unchanged. **Overwrite original** removes
-the embedded metadata from the original as well. This does not anonymize filenames,
+the embedded metadata from the original as well. This does not anonymize
 filesystem timestamps, Android's media database, or information visible in the photo.
 
 **🔒 SUPERIOR SECURITY:**  

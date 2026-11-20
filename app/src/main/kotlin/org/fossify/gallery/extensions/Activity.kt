@@ -969,6 +969,7 @@ fun Activity.openRecycleBin() {
 fun BaseSimpleActivity.writeBitmapToCache(
     source: Uri,
     bitmap: Bitmap,
+    outputFilename: String? = null,
     callback: (path: String?) -> Unit
 ) {
     val bytes = ByteArrayOutputStream()
@@ -982,10 +983,15 @@ fun BaseSimpleActivity.writeBitmapToCache(
         }
     }
 
-    val filename = applicationContext.getFilenameFromContentUri(source)
+    val filename = outputFilename ?: applicationContext.getFilenameFromContentUri(source)
         ?: "tmp-${System.currentTimeMillis()}.jpg"
-    val newPath = "$folder/$filename"
-    val fileDirItem = FileDirItem(newPath, filename)
+    val file = File(folder, filename)
+    val newPath = if (outputFilename != null && getDoesFilePathExist(file.absolutePath)) {
+        getAlternativeFile(file).absolutePath
+    } else {
+        file.absolutePath
+    }
+    val fileDirItem = FileDirItem(newPath, newPath.getFilenameFromPath())
     getFileOutputStream(fileDirItem, true) {
         if (it != null) {
             try {
